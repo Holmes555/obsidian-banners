@@ -118,8 +118,9 @@
     }
 
     &.editing {
-      transform: scaleX(1);
+      transform: scale(0.8);
       transform-origin: center;
+      background: var(--background-primary);
     }
 
     &.draggable { cursor: grab; }
