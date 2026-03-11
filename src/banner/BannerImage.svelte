@@ -117,11 +117,6 @@
       margin: 0 auto;
     }
 
-    &.editing.readable-width {
-      max-width: var(--file-line-width);
-      margin: 0 auto;
-    }
-
     &.draggable { cursor: grab; }
     &.dragging { cursor: grabbing; }
   }
