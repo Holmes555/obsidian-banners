@@ -86,6 +86,18 @@
     margin: calc(-1 * var(--file-margins));
     margin-bottom: var(--file-margins);
   }
+  :global(.markdown-source-view.is-readable-line-width
+    .obsidian-banner-wrapper.with-banner.in-editing:not(.in-internal-embed)) {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  :global(.markdown-source-view.is-readable-line-width
+    .obsidian-banner-wrapper.with-banner.in-editing:not(.in-internal-embed)) {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
   :global(.is-mobile .obsidian-banner-wrapper.with-banner:not(.in-internal-embed)) {
     width: calc(100% + 2 * var(--size-4-5));
     margin: calc(-1 * var(--size-4-5));
