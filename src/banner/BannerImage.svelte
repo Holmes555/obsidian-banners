@@ -118,7 +118,7 @@
     }
 
     &.editing {
-      transform: scale(0.9);
+      transform: scale(0.6);
       transform-origin: center;
     }
 
