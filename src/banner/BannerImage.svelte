@@ -117,6 +117,11 @@
       margin: 0 auto;
     }
 
+    &.editing {
+      transform: scale(0.93);
+      transform-origin: center;
+    }
+
     &.draggable { cursor: grab; }
     &.dragging { cursor: grabbing; }
   }
