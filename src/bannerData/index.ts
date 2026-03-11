@@ -65,7 +65,7 @@ const WRITE_MAP: Record<keyof BannerData, string> = {
   lock: 'lock'
 } as const;
 
-const YAML_REGEX = /^---\n(.*?)\n---/s;
+const YAML_REGEX = /^---\r?\n([\s\S]*?)\r?\n---/;
 const LEGACY_REGEX = /^!\[\[.+\]\]$/;
 
 const getYamlKey = (suffix: string) => {
