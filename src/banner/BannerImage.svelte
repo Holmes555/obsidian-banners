@@ -118,8 +118,8 @@
     }
 
     &.editing.readable-width {
-      max-width: none;
-      margin: 0;
+      max-width: var(--file-line-width);
+      margin: 0 auto;
     }
 
     &.draggable { cursor: grab; }
