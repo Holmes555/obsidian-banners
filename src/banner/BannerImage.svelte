@@ -117,9 +117,9 @@
       margin: 0 auto;
     }
 
-    &.editing {
-      object-fit: contain;
-      background: var(--background-primary);
+    &.editing.readable-width {
+      max-width: none;
+      margin: 0;
     }
 
     &.draggable { cursor: grab; }
