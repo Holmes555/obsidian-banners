@@ -17,6 +17,7 @@
   export let x: number;
   export let y: number;
   export let lock: boolean;
+  export let viewType: 'editing' | 'reading';
   export let embed: Embedded;
   $: ({
     adjustWidthToReadableLineWidth: readableWidth,
@@ -68,6 +69,7 @@
   class:readable-width={readableWidth}
   class:draggable
   class:dragging
+  class:editing={viewType === 'editing'}
   style:object-position={objectPosStyle}
   draggable={false}
   aria-hidden={true}
@@ -113,6 +115,11 @@
     &.readable-width {
       max-width: var(--file-line-width);
       margin: 0 auto;
+    }
+
+    &.editing {
+      object-fit: contain;
+      background: var(--background-primary);
     }
 
     &.draggable { cursor: grab; }

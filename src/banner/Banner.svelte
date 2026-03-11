@@ -43,15 +43,16 @@
     {#await fetchImage(source, file.path)}
       <Loading />
     {:then src}
-      <BannerImage
-        {src}
-        x={bannerX}
-        y={bannerY}
-        lock={lockValue}
-        {embed}
-        on:drag-banner={async ({ detail }) => updateBannerData(file, detail)}
-        on:toggle-lock={toggleLock}
-      />
+    <BannerImage
+      {src}
+      x={bannerX}
+      y={bannerY}
+      lock={lockValue}
+      {viewType}
+      {embed}
+      on:drag-banner={async ({ detail }) => updateBannerData(file, detail)}
+      on:toggle-lock={toggleLock}
+    />
     {:catch error}
       <Error {error} />
     {/await}
