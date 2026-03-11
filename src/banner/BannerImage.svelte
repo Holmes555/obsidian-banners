@@ -118,13 +118,8 @@
     }
 
     &.editing {
-      transform: scale(0.6);
+      transform: scaleX(1);
       transform-origin: center;
-    }
-
-    &.editing.readable-width {
-      max-width: var(--file-line-width);
-      margin: 0 auto;
     }
 
     &.draggable { cursor: grab; }
