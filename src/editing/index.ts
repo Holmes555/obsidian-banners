@@ -31,6 +31,18 @@ export const registerEditorBannerEvents = () => {
     }, 'editing');
   });
 
+  // Ensure banners update when switching notes within the same editor leaf
+  plug.registerEvent(
+    plug.app.workspace.on('active-leaf-change', (leaf) => {
+      if (!leaf || !doesLeafHaveMarkdownMode(leaf)) return;
+      const { mode } = (leaf.getViewState() as MarkdownViewState).state;
+      const effects = mode === 'source'
+        ? openNoteEffect.of(null)
+        : removeBannerEffect.of(null);
+      leaf.view.editor.cm.dispatch({ effects });
+    })
+  );
+
   /* Remove unused banners when switching to reading view,
     as well as assign the correct banners when opening/switching notes in an editor */
   plug.registerEvent(
