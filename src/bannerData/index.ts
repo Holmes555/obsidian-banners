@@ -65,7 +65,7 @@ const WRITE_MAP: Record<keyof BannerData, string> = {
   lock: 'lock'
 } as const;
 
-const YAML_REGEX = /^---\r?\n([\s\S]*?)\r?\n---/;
+const YAML_REGEX = /^\uFEFF?\s*---\r?\n([\s\S]*?)\r?\n---/;
 const LEGACY_REGEX = /^!\[\[.+\]\]$/;
 
 const getYamlKey = (suffix: string) => {
@@ -101,11 +101,14 @@ export const extractBannerDataFromState = (state: EditorState): BannerData => {
   const match = data?.match(YAML_REGEX);
   const yaml = match ? match[1] : '';
   try {
-    const frontmatter = (parseYaml(yaml) ?? {}) as Record<string, unknown>;
-    return extractBannerData(frontmatter, file!);
+    if (match) {
+      const frontmatter = (parseYaml(yaml) ?? {}) as Record<string, unknown>;
+      return extractBannerData(frontmatter, file!);
+    }
   } catch (error) {
-    return extractBannerData({}, file!);
+    return extractBannerDataFromFile(file!);
   }
+  return extractBannerDataFromFile(file!);
 };
 
 // Upsert banner data into the frontmatter with its associated field

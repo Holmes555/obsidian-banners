@@ -19,6 +19,7 @@ interface LeafBannerEntry {
 const WRAPPER_CLASS = 'obsidian-banner-wrapper';
 const IN_INTERNAL_EMBED_CLASS = 'in-internal-embed';
 const IN_POPOVER_CLASS = 'in-popover';
+const IN_EDITING_CLASS = 'in-editing';
 const WITH_BANNER_CLASS = 'with-banner';
 const WITHOUT_BANNER_CLASS = 'without-banner';
 
@@ -29,6 +30,7 @@ export const createBanner = (bannerProps: BannerProps, container: HTMLElement, i
   cls.push(bannerProps.source ? WITH_BANNER_CLASS : WITHOUT_BANNER_CLASS);
   if (bannerProps.embed === 'internal') cls.push(IN_INTERNAL_EMBED_CLASS);
   else if (bannerProps.embed === 'popover') cls.push(IN_POPOVER_CLASS);
+  if (bannerProps.viewType === 'editing') cls.push(IN_EDITING_CLASS);
 
   const wrapper = createDiv({ cls });
   const banner = new Banner({
